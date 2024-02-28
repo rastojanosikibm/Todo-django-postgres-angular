@@ -12,7 +12,7 @@ from rest_framework.decorators import api_view
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
     if request.method == 'GET':
-        tutorials = Tutorial.objects.all()
+        tutorials = Tutorial.objects.all().order_by("id").values()
         
         title = request.GET.get('title', None)
         if title is not None:

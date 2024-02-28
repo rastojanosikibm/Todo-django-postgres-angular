@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: "postgres:14-alpine"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=jawstutorial
+    ports:
+      - 5432:5432
+
+  backend:
+    build:
+      context: ./django-rest-api
+      dockerfile: Dockerfile
+    command: sh -c "python3 manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./angular-11-client
+      dockerfile: Dockerfile
+      args:
+        name: Angular11Crud
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+      - backend
