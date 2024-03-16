@@ -1,5 +1,5 @@
 ## Set Up
-
+Required node.js >=v14.15
 Run npm install
 
 ## Development server

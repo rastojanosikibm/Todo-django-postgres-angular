@@ -25,7 +25,7 @@ SECRET_KEY = 'w-k7xx44*y)tq&@b5=9bniqw_q486rywjacy4+vo_**94lh=bd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'jawstutorial',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': 'password123',
         'HOST': 'db',
         'PORT': '5432',
     }
@@ -137,3 +137,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ALLOW_ALL_ORIGINS = True
