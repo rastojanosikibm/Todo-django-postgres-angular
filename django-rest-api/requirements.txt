@@ -6,3 +6,4 @@ pipenv
 zappa
 requests==2.29.0
 psycopg2
+psycopg[binary]

@@ -57,12 +57,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8080',
-    'http://localhost:8081',
-    'http://localhost:4200',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = ()
 
 ROOT_URLCONF = 'DjangoRestApisPostgreSQL.urls'
 
@@ -94,7 +90,7 @@ DATABASES = {
         'NAME': 'jawstutorial',
         'USER': 'postgres',
         'PASSWORD': 'password123',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
